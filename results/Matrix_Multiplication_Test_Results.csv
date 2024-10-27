@@ -1,0 +1,4 @@
+Matrix Size,Sequential Execution Time (s),Random Access Execution Time (s)
+100,0.00209,0.00215
+200,0.0171,0.01694
+500,0.32354,0.31996
