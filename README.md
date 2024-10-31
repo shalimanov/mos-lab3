@@ -7,29 +7,31 @@ Investigate impact of different memory access modes and synchronization mechanis
 
 ### 1. Synchronization in Shared Memory Access
 
-- **Atomic**: Safe, but slower.
-- **Volatile**: Updated, but unsafe.
-- **No synchronization**: Fastest, but incorrect results.
+- **Atomic**: Guarantees data correctness but adds latency due to synchronization overhead.
+- **Volatile**: Ensures visibility of recent data but doesn't protect against race conditions.
+- **No synchronization**: Fastest but unsafe, causing unpredictable results due to race conditions.
 
 ---
 
 ### 2. Sequential vs Random Memory Access
 
-- **Sequential Access**: Faster due to prefetching.
-- **Random Access**: Slower; causes cache misses.
+- **Sequential access**: Utilizes cache efficiently, improving speed by minimizing cache misses.
+- **Random access**: Disrupts caching, increasing cache misses and reducing performance.
 
 ---
 
 ### 3. Cache Misses with Large Data Arrays
 
-- **Sequential Access**: Handles cache limits efficiently.
-- **Random Access**: Frequent cache misses, slower.
+- **Sequential Access**: Prefetching reduces cache misses, preserving speed despite large data sizes.
+- **Random Access**: High cache miss rate causes frequent slow memory accesses and reduced performance.
 
 ---
 
 ### 4. Cache Latency
 
-- **Small Arrays**: Low latency, fast access.
-- **Increasing Array Sizes**: High latency, frequent misses.
+- **Small arrays**: Minimal latency since data fits in cache, allowing fast access.
+- **Increasing array sizes**: Rising latency as data exceeds cache size, increasing main memory accesses.
 
 ---
+
+### Summary
